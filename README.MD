@@ -95,6 +95,19 @@ How Directives are compiled :
 	If directives needs to be cloned multiple times, (EG. ng-repeat), we get the performance benefits as compile functions runs once for the 
 	cloned template, but the links functions runs for each cloned instance. This is why compile function does not receive a scope.
 
+Changing a Directive's Scope : ( In Some cases our directives may want to add serveral properties and functions to the scope that are for internal use only)
+
+	By default a directive gets the partent's scope.
+
+	If we are exposing the parent controller's scope to the directives, they are free to modify the scope properties.
+
+	So, we have two other otions:
+
+		1) Child scope -- this scope prototypically inherits the parents's scope.
+		2) An isolated scope -- A new scope that doesn't inherit from the parent's scope.
+
+		These scope can be configured with the scope property of the directive definition object..
+
 
 
 

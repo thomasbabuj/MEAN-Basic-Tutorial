@@ -38,3 +38,32 @@ app.directive('test', [function(){
 		}
 	};
 }]);
+
+
+//code asks Angular to give the directive a new child scope that prototypically inherits from parent scope
+app.directive('childsScope', [function(){
+	return {
+		scope : true , // use a child scope that inherits from parent
+		restrict : 'E',
+		replace : true,
+		template : '<h2>Child Scope that Inherits from Parent</h2>',
+		link : function(scope, elem, attr) {
+
+			//scope.$apply(function(){
+			//	scope.color = 'white';
+			//});					
+		}
+	};
+}]);
+
+//an isolated scope
+// This directive uses a new isolated scope that does not inherit from the parent
+app.directive('isolatedScope', [function(){
+	return {
+		scope : { color : 'red' }, // use a new isolated scope
+		restrict : 'E',
+		replace : true,
+		template : '<h2 style="background-color: color ">Isolated Scope</h2>'
+
+	};
+}]);
