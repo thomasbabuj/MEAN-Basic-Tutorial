@@ -2,39 +2,39 @@
 
 var app = angular.module('app', []);
 
-app.directive('hello', [function(){
-	return {
-		restrict : 'CEMA', // C : class, E : element, M : comments, A: attributes
-		replace : true, // replaces original content with template
-		template : '<span><br> Hello</span>' 
-	};
-}]); <!-- Hello Directives Ends -->
-
-/*
-*	@param1 :  Directive Name
-*	@param2 :  function which returns a directive definition object
-*/
-
-app.directive('helloworld', [function(){
-	return {
-		restrict : 'AE', // Attribute and Element
-		replace : true,
-		template: '<h3>Hello World!</h3>'
-	};
-}]); <!-- Helloworld Directive Ends -->
-
-app.directive('helloWorld', [function() {
+app.directive('colorText', [function(){
 	return {
 		restrict : 'AE',
 		replace : true,
-		template : '<i><br />HelloWorld!!</i>'
+		template : '<h1 style="background-color:{{ color }}">Welcome Thomas</h1>',
+		link : function(scope, elem, attr) {
+			console.log ('I am in the link');
+			elem.bind('click', function(){
+				elem.css('background-color', 'white');
+				scope.$apply(function(){
+					scope.color = 'white';
+				});	
+			});
+
+			elem.bind('mousemove', function(){
+				elem.css('cursor', 'pointer');
+			});
+			
+		}
 	};
 }]);
 
-app.directive('default', [function(){
+app.directive('test', [function(){	
 	return {
-		restrict : 'E',
+		restrict : 'AE',
 		replace : true,
-		template : '<b>Inserting default output template</b>'
+		template : '<p>Compile function...</p>',
+		compile : function(tElemnt, attrs) {
+			console.log ('Inside Compile function');
+			// Do optional DOM transformations
+			return function(scope, element, attrs){
+				console.log( 'Linking function');
+			};
+		}
 	};
 }]);

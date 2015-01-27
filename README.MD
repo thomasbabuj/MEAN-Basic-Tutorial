@@ -43,12 +43,41 @@ What are directives:
 	Common Three properties in the directive definition object are as follows,
 
 		restrict --  specify how a directive should be used in HTML
+
 		template --  specifies the HTML markup that will be produced when directive is compiled and linked by Angular.
 			or
 		templateUrl --  Place the template in a separeate HTML file and pass the path 
-		replace  -- specifies if the generated template will replace the HTML element on which the directive is attached.
-					if we set replace to false, the default output template will be inserted into the element.			 
 
+		replace  -- specifies if the generated template will replace the HTML element on which the directive is attached.
+					if we set replace to false, the default output template will be inserted into the element.			 					
+	    link property and scope:
+
+    		The template produced by a directive is meaningless unless it's compiled against the right scope.
+    	
+    		By default a directive does not get a child scope. Rather, it gets the parent's scope. This means, if the directive presents inside a controller it will use that controller's scope.
+
+    		To utilize the scope, we can use the link property of the definition object
+
+    		link function takes three arguments, 
+
+    			scope -- the scope passed to the directive.
+
+    			elem  -- The jQLite wrapped element on which the directive is applied. If we included jQuery in the HTMl before AngularJS is included this becomes jQuery wrapped instead of JQLite. There is no need to again wrap it inside $() for DOM manipulations.
+
+    			attrs -- An object representing normalized attributes attached to the element on which the directive is applied.
+
+    		The link function is mainly used for attaching event listeners to DOM elements, watching model properties for changes, and updating the DOM.
+
+    	compile function :
+
+    		The compile function is used to perform any DOM transformation before the link function runs.
+
+    		it accepts following arguments
+
+    			tElement -- the element on which the directive is applied
+    			attrs    -- the normalized list of attributes declared on the element
+
+    		note : compile function doest not have access to scope and must return a link function. but if there is no compile function we can config the link function as usual.
 
 
 
@@ -62,3 +91,4 @@ Resources :
 	http://adrianmejia.com/blog/2014/09/28/angularjs-tutorial-for-beginners-with-nodejs-expressjs-and-mongodb/
 	http://www.sitepoint.com/practical-guide-angularjs-directives/
 	http://stackoverflow.com/questions/15285635/how-to-use-replace-of-directive-definition
+	http://onehungrymind.com/angularjs-directives-basics/

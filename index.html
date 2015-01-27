@@ -5,25 +5,16 @@
 </head>
 <body>
 	
-	<hello>Element</hello> Element
-	<div data-hello>Attribute</div> data-attribute
-	<div hello>Attribute</div> Attribute
-	<!-- directive : hello --> Comment
-	<p class="hello"></p> Class
+	<input type="text" ng-model="color">
 
-	<!-- Helloworld example -->
+	{{ color }}
 
-	<div helloworld>Attribute</div> Attribute
-	<helloworld>Element</helloworld> Element
+	<div color-text><h1>Default Text<h1></div>
 
-	<!-- HTML5 compliant directive -->
-	<div data-hello-world></div> HTML compliant Attribute
-	<div x-hello-world></div>
+	<color-text></color-text>
 
-	<div data-hello:world></div> HTML compliant Attribute
-	<div x-hello:world></div>
+	<test>Default Test element</test>
 
-	<default>Default Element</default>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
 	<script src="js/app.js"></script>
