@@ -80,6 +80,20 @@ What are directives:
     		note : compile function doest not have access to scope and must return a link function. but if there is no compile function we can config the link function as usual.
 
 
+How Directives are compiled :
+
+	When application bootstraps, Angular starts parsing the DOM using the $compile service.
+
+	This service searches for directives in the markup and matches them against registered directives.
+
+	Once all the directives have been identified, Angular executes their compile functions.
+
+	Since compile function returns a link function which is added to the list of link functions to be executed later.
+
+	This is called the compile phase.
+
+	If directives needs to be cloned multiple times, (EG. ng-repeat), we get the performance benefits as compile functions runs once for the 
+	cloned template, but the links functions runs for each cloned instance. This is why compile function does not receive a scope.
 
 
 
