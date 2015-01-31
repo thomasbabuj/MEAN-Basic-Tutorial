@@ -4,11 +4,11 @@ var app = angular.module('app', []);
 
 app.directive('colorText', [function(){
 	return {
+		scope : {},
 		restrict : 'AE',
 		replace : true,
 		template : '<h1 style="background-color:{{ color }}">Welcome Thomas</h1>',
-		link : function(scope, elem, attr) {
-			console.log ('I am in the link');
+		link : function(scope, elem, attr) {			
 			elem.bind('click', function(){
 				elem.css('background-color', 'white');
 				scope.$apply(function(){
@@ -60,7 +60,7 @@ app.directive('childsScope', [function(){
 // This directive uses a new isolated scope that does not inherit from the parent
 app.directive('isolatedScope', [function(){
 	return {
-		scope : { color : 'red' }, // use a new isolated scope
+		scope : {  }, // use a new isolated scope
 		restrict : 'E',
 		replace : true,
 		template : '<h2 style="background-color: color ">Isolated Scope</h2>'

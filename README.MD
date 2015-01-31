@@ -40,7 +40,7 @@ What are directives:
 	While matching directives, Angular strips the prefix x- or data- from element/attribute names. Then it converts - or :
 	delimited strings to camelCase and machtes with the registered directives.
 
-	Common Three properties in the directive definition object are as follows,
+	Common properties of the directive definition object are as follows,
 
 		restrict --  specify how a directive should be used in HTML
 
@@ -104,9 +104,13 @@ Changing a Directive's Scope : ( In Some cases our directives may want to add se
 	So, we have two other otions:
 
 		1) Child scope -- this scope prototypically inherits the parents's scope.
-		2) An isolated scope -- A new scope that doesn't inherit from the parent's scope.
+		2) An isolated scope -- A new scope that doesn't inherit from the parent's scope. Isolated scopes are good when we want to create reusable components.
 
 		These scope can be configured with the scope property of the directive definition object..
+
+ Binding Between Isolated and parent scope properties
+
+ 	Angular gives you the flexibility to selectively pass parent scope properties to the directive through bindings.		
 
 
 
