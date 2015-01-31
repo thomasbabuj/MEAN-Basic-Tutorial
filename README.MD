@@ -120,7 +120,12 @@ Changing a Directive's Scope : ( In Some cases our directives may want to add se
 
  	Option 1: Use @ for One way text binding
 
+ 		specify the isolates scope property color should be bound to the attribute, which is applied to the directive in the HTML.
 
+ 		This method is called one way binding, with this technique you can only pass strings to the attribute ( using {{{}}} ). we call this one way mainly becuase, When parent scope changes the isolated scope will change. However the reverse is not true.
+
+ 		If the isolated property and the attribute name is same then we can write the directive definition like this
+ 		  scope : { color : '@' }
 
 
 Resources : 

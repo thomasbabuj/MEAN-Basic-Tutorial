@@ -5,7 +5,7 @@ var app = angular.module('app', []);
 app.directive('colorText', [function(){
 	return {
 		scope : {
-			color : '@colorAttr'
+			color : '@' // We can use this when if the isolated property and attribute name is same
 		},
 		restrict : 'AE',
 		replace : true,
