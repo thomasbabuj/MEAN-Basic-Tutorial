@@ -2,6 +2,52 @@
 
 var app = angular.module('app', []);
 
+app.controller('MainCtrl', function($scope) {
+	
+	$scope.colors = ['red', 'green', 'orange'];
+
+	$scope.change = function(){
+		return $scope.colors[Math.floor((Math.random()*3))];
+	};
+
+	$scope.helloWorld = function(){
+		console.log('How are u');		
+	}
+
+});
+
+app.directive('helloWorld', [function(){
+	return {
+		scope : { 
+			bgcolor : '@',  
+			change : '&'
+		},
+		restrict : 'AE',
+		replace : true,
+		template : '<h2 style="background-color: {{bgcolor}}"> Hello, Everyone !</h2>',
+		link : function(scope, elem, attr) {
+			elem.bind('click', function() {
+				elem.css('background-color', 'white');
+				scope.$apply(function(){
+					scope.bgcolor = 'white';
+				});
+			});	
+
+			elem.bind('mouseover', function(){
+				elem.css('cursor', 'pointer');
+				scope.$apply(function(){
+					scope.bgcolor = scope.change();
+					
+				});
+			});
+
+			scope.$watch('bgcolor', function(changeVal){
+				console.log ('Changed detected');
+			});		
+		}
+	};
+}]);
+
 app.directive('colorText', [function(){
 	return {
 		scope : {

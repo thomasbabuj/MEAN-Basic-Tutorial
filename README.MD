@@ -137,6 +137,35 @@ Changing a Directive's Scope : ( In Some cases our directives may want to add se
 
  		Need to use  '&' symbol when you want to call a function from a parent scope.
 
+ 	Guidelines to choose the right scope for directives :
+
+ 		Parent Scope : ( scope : false ) -- 
+
+ 			This is the default case. If your 	directive does nto manipulate the parent scope properties you might not need a new scope.
+
+ 		Child Scope : ( scope : true ) --
+
+ 			Creates a new child scope for a directive which prototypically inherits from the parent scope.
+
+ 			If the properties and functions you set on the scope are not relavent to ther directives and the parent, you should probably create a new child scope.
+
+ 		Isoldated Scope : ( scope :{} )
+
+ 			You need this if the directive you are going to build is self contained and resuable. 
+
+ 			You directive might be creating many scope properties and functions which are meant for internal use, and should never seen by the outside world.
+
+ 			The Isoldated scope doesnt not inherit the parent scope.
+
+ 	
+
+
+
+
+ 	
+ 		
+
+
 
 Resources : 
 
