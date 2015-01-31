@@ -157,7 +157,15 @@ Changing a Directive's Scope : ( In Some cases our directives may want to add se
 
  			The Isoldated scope doesnt not inherit the parent scope.
 
- 	
+ 	Transclusion
+
+ 		Its a feature which lets us wrap a directive around arbitrary content.
+
+ 		We can latter extract and compile it against the correct scope, and finally place it at the specified position in the directive template.
+
+ 		If you set "transclude : true" in the directive definition, a new transcluded scope will be created which prototypically inherited from the parent scope.
+
+ 		If you want your directive with isolated scope to contain an aribitrary piece of content and execute it against the parent scope, trasnclusion can be used.
 
 
 

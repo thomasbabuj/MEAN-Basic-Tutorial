@@ -6,6 +6,8 @@ app.controller('MainCtrl', function($scope) {
 	
 	$scope.colors = ['red', 'green', 'orange'];
 
+	$scope.name = 'Thomas';
+
 	$scope.change = function(){
 		return $scope.colors[Math.floor((Math.random()*3))];
 	};
@@ -37,7 +39,7 @@ app.directive('helloWorld', [function(){
 				elem.css('cursor', 'pointer');
 				scope.$apply(function(){
 					scope.bgcolor = scope.change();
-					
+
 				});
 			});
 
@@ -113,6 +115,15 @@ app.directive('isolatedScope', [function(){
 		replace : true,
 		template : '<h2 style="background-color: color ">Isolated Scope</h2>'
 
+	};
+}]);
+
+// Transcluion
+app.directive('outputText', [function(){
+	return {
+		trasnclude : true,
+		scope : {},
+		template : '<div ng-transclude></div>'
 	};
 }]);
 

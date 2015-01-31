@@ -22,7 +22,13 @@
 	<div ng-controller="MainCtrl">
 		<input type="text" ng-model="bgcolor" placeholder="Enter your color">
 		<hello:world bgcolor="{{bgcolor}}">Default HelloWorld Msg</hello:world>
+
+			<div output-text>
+				<p>Hello {{name}}</p>
+			</div>
 	</div>
+
+
 
 
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
