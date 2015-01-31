@@ -5,7 +5,7 @@ var app = angular.module('app', []);
 app.directive('colorText', [function(){
 	return {
 		scope : {
-			color : '@' // We can use this when if the isolated property and attribute name is same
+			color : '@'
 		},
 		restrict : 'AE',
 		replace : true,
@@ -69,3 +69,4 @@ app.directive('isolatedScope', [function(){
 
 	};
 }]);
+

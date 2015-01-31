@@ -127,6 +127,16 @@ Changing a Directive's Scope : ( In Some cases our directives may want to add se
  		If the isolated property and the attribute name is same then we can write the directive definition like this
  		  scope : { color : '@' }
 
+ 	Option 2: Use = for Two way binding
+
+ 		This technique lets you assign actual scope model to the attribute rather then just plain strings.
+
+ 		As a result you can pass values ranging from simple strings and arrays to complex objects to the isolated scope. and also two binding exists.
+
+ 	Option 3: Use & to execute functions in the parent scope
+
+ 		Need to use  '&' symbol when you want to call a function from a parent scope.
+
 
 Resources : 
 
