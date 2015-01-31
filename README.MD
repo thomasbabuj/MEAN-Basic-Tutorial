@@ -110,9 +110,15 @@ Changing a Directive's Scope : ( In Some cases our directives may want to add se
 
  Binding Between Isolated and parent scope properties
 
- 	Angular gives you the flexibility to selectively pass parent scope properties to the directive through bindings.		
+ 	Angular gives you the flexibility to selectively pass parent scope properties to the directive through bindings.
 
+ 	Currently the "color-text" directive is not functional, since we have an isolated scope, the expression inside the directive template evaluates against this scope.
 
+ 	But ng-model directive on the input element refers to the parent scope property color.
+
+ 	In Angular, this binding can be achieved by setting attributes on the directive element in HTML and configuring the scope property in the directive definition object.		
+
+ 	Option 1: Use @ for One way text binding
 
 
 

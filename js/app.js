@@ -4,7 +4,9 @@ var app = angular.module('app', []);
 
 app.directive('colorText', [function(){
 	return {
-		scope : {},
+		scope : {
+			color : '@colorAttr'
+		},
 		restrict : 'AE',
 		replace : true,
 		template : '<h1 style="background-color:{{ color }}">Welcome Thomas</h1>',
