@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html ng-app="ToDoApp">
+<head>
+	<title>Test the knowledge</title>
+</head>
+<body>
+	<ng-view></ng-view>
+	
+	<script type="text/ng-template" id="/todos.html">
+		<ul>			
+			<li ng-repeat="todo in todos">
+				<input type="checkbox" ng-model="todo.completed" data-color-text/>	
+				<a href="angular-full.html#/{{$index}}">{{todo.name}}</a>			
+			</li>			
+		</ul>
+	</script>
+
+	<script type="text/ng-template" id="/todoDetail.html">
+		<a href="#/">Go Back</a>
+		<h1>Name : {{ todo.name }}</h1>
+		<h2>Status : {{ todo.completed  | completedOrNot }}</h2>
+		<h3>Note : {{ todo.note }}</h3>
+	</script>
+
+
+	<!-- Libraries -->
+	<script src="js/angularjs.1.2.25.js"></script>
+	<script src="js/angularjs.routes.1.2.25.js"></script>
+	<script>
+
+		var app = angular.module('ToDoApp', ['ngRoute']);
+
+		<!-- Factory -->
+		app.factory('Todos', function(){
+			return [
+				{ 'name' : 'AngularJS Directives' , completed : true, note : 'add notes...' },
+				{ 'name' : 'Data Binding' , completed : true, note : 'add notes...' },
+				{ 'name' : '$scope' , completed : true, note : 'add notes...' },
+				{ 'name' : 'Controlls and Modules' , completed : true, note : 'add notes...' },
+				{ 'name' : 'Templates and Routes' , completed : true, note : 'add notes...' },
+				{ 'name' : 'Filters and Services' , completed : false, note : 'add notes...' },
+				{ 'name' : 'Get Started with Node/ExpressJS' , completed : false, note : 'add notes...' },
+				{ 'name' : 'Setup MongoDb database' , completed : false, note : 'add notes...' },
+				{ 'name' : 'Be awesome' , completed : false, note : 'add notes...' },
+			];
+		});
+
+		<!-- Controller -->
+		app.controller('ToDoCtrl', ['$scope', 'Todos', function($scope, Todos){
+			$scope.todos = Todos;
+		}]);
+
+		app.controller('ToDoDetailsCtrl', ['$scope','$routeParams', 'Todos', function($scope, $routeParams, Todos){
+			$scope.todo = Todos[$routeParams.id];
+		}]);
+
+
+		<!-- Routes -->
+
+		app.config(['$routeProvider', function($routeProvider){
+			$routeProvider
+				.when('/', {
+					templateUrl : '/todos.html',
+					controller : 'ToDoCtrl'
+				})
+				.when('/:id', {
+					templateUrl : '/todoDetail.html',
+					controller : 'ToDoDetailsCtrl'
+				})
+		}]);
+
+		<!-- Filter -->
+
+		app.filter('completedOrNot', function(){
+			return function(input) {
+				return input ? 'Completed' : 'Not Completed';
+			};
+		});		
+	</script>
+</body>
+</html>
