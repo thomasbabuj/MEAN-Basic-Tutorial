@@ -167,6 +167,24 @@ Changing a Directive's Scope : ( In Some cases our directives may want to add se
 
  		If you want your directive with isolated scope to contain an aribitrary piece of content and execute it against the parent scope, trasnclusion can be used.
 
+AngularJS Data Binding
+
+	Data biding is an AngularJS feature that automatically synchronizes your model data with your HTML.
+
+	Whenever the HTML is changed the model gets updated and whenever the model gets updated it is reflected in HTML.
+
+
+AngularJS Scope
+
+	$scope it is an object that contains all the data to which HTML is bound.
+
+	Everything that is attached to the $scope, it is automatically *$watch*ed by AngularJS and upadted.
+
+AngularJS Controllers
+
+	Controllers are code that "controls" certain sections containing DOM elements in whcih they are declared.  They encapsulate the behaviour, callbacks and glue $scope models with views.
+
+	
 
 
 
