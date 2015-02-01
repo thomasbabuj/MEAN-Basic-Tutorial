@@ -349,6 +349,14 @@ ExpressJS and Middlewares
 		errorhandler - sending full error stack traces to the client when an error occurs.
 			its a good practice to surrond it with an if statement to check process.env.NODE_ENV === 'development'
 
+		vhost - Allows you to use differnt stack of middlewares depending on the request
+				menaning that we can assigns different instances with differnt middlewares.
+
+		csurf -  Adds a CROSS Site Request Forgery (CSRF) protection by adding a toke to responds either via
+		session or cookie-parser  middleware.
+
+		timeout - halt execution if it take more that a given time.
+
 
 
 
@@ -373,3 +381,5 @@ Resources :
 	http://onehungrymind.com/angularjs-directives-basics/
 
 	http://adrianmejia.com/blog/2014/10/01/creating-a-restful-api-tutorial-with-nodejs-and-mongodb/
+
+	http://adrianmejia.com/blog/2014/10/03/mean-stack-tutorial-mongodb-expressjs-angularjs-nodejs/
