@@ -184,7 +184,41 @@ AngularJS Controllers
 
 	Controllers are code that "controls" certain sections containing DOM elements in whcih they are declared.  They encapsulate the behaviour, callbacks and glue $scope models with views.
 
+	ng-controller 
+		
+		Is a directive that tells angular what function controller to use for a particular view.
+
+		Every time AngularJS loads, it reads the ng-controller argument, then it will look for a function in plain old javascript object with the same name or for angular.controller matching name.
+
+
+	$scope 
 	
+		$scope 's are the glue between data models in the controllers and the views.
+
+		Angularjs will $inject the scope objects to the view.
+
+	
+AngularJS Modules
+
+	Modules are a way to encapsulate different parts of your application ( directives, controllers, factories, ...)	and reuse them in other places.
+
+	Using modules brings many advantages such as modules can be loaded in any order, parallel depdendency loading, tests can only load
+	the required modules and keep it fast, clear view of the dependencies.
+
+
+AngularJS Templates
+
+	Templates contains HTML and Angular elements ( directives, markup, filters or form controls).
+
+	They can also be cached and referenced by Id.
+
+	
+
+
+
+
+
+
 
 
 
