@@ -278,7 +278,35 @@ What RESTful API really means ?
 	POST, GET, PUT, DELETE = CREATE , READ , UPDATE, DELETE ( CRUD )
 
 
-	
+Mongoose Read and Query
+
+	There are multiple options for reading/querying data :
+
+		Model.find(conditions, [fields], [options], [callback]);
+		Model.findByID(id, [fields], [options], [callback]);
+		Model.findOne(conditions, [fields], [options], [callback]);
+
+Mongoose Update
+
+	Each model has an update method which accepts mulitple updates ( because batch updates doesn't return an array with data)	
+
+	Alternatively, the method *findOneAndUpdate* could be used to update one and return an object.
+
+		Model.update(conditions, update, [options], [callback]);
+		Model.findByIdAndUpdate(id, [update], [options], [callback]);
+		Model.findOneAndUpdate(conditions, [update], [options], [callback]);
+
+Mongoose Delete
+
+	Update and Remove mongoose API are identical, the only difference it is that no elements are returned.
+
+		Model.remove(conditions,[callback]);
+		Model.findByIdAndDelete(id, [options], [callback]);
+		Model.findOneAndRemove(conditions,[options], [callback]);	
+
+
+
+
 
 
 
