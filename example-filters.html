@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html ng-app="TodoApp">
+<head>
+	<title>AngularJS Filters Example</title>
+</head>
+<body>
+	<h2>Filters lab</h2>
+	<p>Try them out:</p>
+	<span>
+		1)  {{ 'iMac' | uppercase }} <br />
+		2)  {{ 2895 | currency }}
+		3) {{ 1288323623006 | date:"MM/dd/yyyy 'at' h:mma"}} <br>
+		4) {{ ['ca', 'ba', 'az'] | limitTo: 2 }} <br>
+		5) <pre>{{ {'name':'Adrian', 'last': 'Mejia' } | json }}</pre>
+		6) {{ [{n: 'Zack'}, {n: 'John'}, {n: 'Ana'}] | orderBy: '+n' | limitTo: 2 }} <br>  	
+	</span>
+
+	<ng-view></ng-view>
+
+	<script type="text/ng-template" id="/todos.html">
+		Search: <input type="text" ng-model="search.name">
+	    <ul>
+	      <li ng-repeat="todo in todos | filter: search">
+	        <input type="checkbox" ng-model="todo.completed">
+	        <a href="#/">{{todo.name}}</a>
+	      </li>
+	    </ul>
+	</script>
+	
+	<script src="js/angularjs.1.2.25.js"></script>
+	<script src="js/angularjs.routes.1.2.25.js"></script>
+	<script>
+
+		var app = angular.module('TodoApp', ['ngRoute']);
+
+
+		app.config(['$routeProvider', function($routeProvider){			
+			$routeProvider
+				.when('/', {
+					templateUrl : '/todos.html',
+					controller : 'ToDoCtrl'
+				});
+		}]);		
+
+		app.controller('ToDoCtrl', ['$scope', function($scope){
+			$scope.todos = [
+				{ name : 'Master HTML/CSS/Javascript', completed :true },
+				{ name : 'Learn AngularJS', completed :false },
+				{ name : 'Build NodeJS backend', completed :false },
+				{ name : 'Get started with ExpressJS', completed :false },
+				{ name : 'Setup MongoDB database', completed :false },
+				{ name : 'Be awesome!', completed :false },
+			];
+		}]);
+
+	</script>
+</body>
+</html>

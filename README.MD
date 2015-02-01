@@ -231,6 +231,29 @@ AngularJS services (factory)
 
 	Refer ( example-services-factory.html)
 
+AngularJS Filters
+
+	Filters allow you to format and transform the output of expressions inside the curly braces.
+
+	Built-in filters :
+
+		filter : search for a given string in an array and return matches.
+
+		Number : adds comma separated 1000's add two decimal places
+
+		Currently : the sames as Numbers and adds a $ in front
+
+		Date : takes a Unix timestamp or date string and output it in the format that you specify
+
+		JSON : converts javascripts objects to JSON strings.
+
+		lowercase/uppercase : converts strings to lower/upper case
+
+		limitTo : number of elements from an array to show
+
+		orderBy : order array of objects by key that you specify.
+
+	We can chaing mulitple filters	
 
 
 
