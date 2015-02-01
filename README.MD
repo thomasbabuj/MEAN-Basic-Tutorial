@@ -253,9 +253,32 @@ AngularJS Filters
 
 		orderBy : order array of objects by key that you specify.
 
-	We can chaing mulitple filters	
+	We can chaing mulitple filters and also define your own filters.
+	
 
 
+
+What RESTful API really means ?
+
+	REST stands for Repersentational State Transfer.  It is an architecture that allows
+	client-server communication through a uniform interface.
+
+	They are also stateless, cachable and has a property called idempotence, which means,that the side effects of multiple identical requests have the same effect as the same single request.
+
+	HTTP RESTful API's are compose of :
+
+		HTTP methods, e.g GET, PUT, DELETE, PATCH, POST
+
+		Base URI , eg. http://www.yahoo.com
+
+		URL Path  eg. /blog/article1.html
+
+		Media type, eg. HTML, JSON, XML, Microformats, Images, ....
+
+	POST, GET, PUT, DELETE = CREATE , READ , UPDATE, DELETE ( CRUD )
+
+
+	
 
 
 
@@ -275,3 +298,5 @@ Resources :
 	http://www.sitepoint.com/practical-guide-angularjs-directives/
 	http://stackoverflow.com/questions/15285635/how-to-use-replace-of-directive-definition
 	http://onehungrymind.com/angularjs-directives-basics/
+
+	http://adrianmejia.com/blog/2014/10/01/creating-a-restful-api-tutorial-with-nodejs-and-mongodb/
