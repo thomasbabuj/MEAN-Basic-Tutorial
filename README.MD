@@ -220,6 +220,17 @@ AngularJS Routes (ngRoutes)
 
 	It doesnot come with AngularJS core module, so we have to list it as a dependency.
 
+	ngView is a directive used by $routeProvider to render HTMl into it. every time the URL changes, it will inject a new html
+	template and controller into ngView.
+
+AngularJS services (factory)
+
+	Services are a way to inject data dependencies into controllers and they are created through "factories".
+
+	Using services we can access the same scope object into multiple controllers.
+
+	Refer ( example-services-factory.html)
+
 
 
 

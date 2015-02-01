@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html ng-app="TodoApp">
+<head>
+	<title>AngularJS Service Factory Example</title>
+</head>
+<body>
+
+	<ng-view></ng-view>
+
+	<script type="text/ng-template" id="/todos.html">		
+		<h1>Welcome {{ name }},</h1>
+
+		<ul>
+			<li ng-repeat="todo in todos">				
+				<input type="checkbox" ng-model="todo.completed">
+				<a href="example-services-factory.html#/{{ $index }}">{{todo.name}}</a>
+			</li>
+		</ul>
+	</script>
+
+	<script type="text/ng-template" id="/todoDetail.html">
+		<h1>{{ todo.name }}</h1>
+		Completed : <input type="checkbox" ng-model="todo.completed">
+		Note : <textarea>{{ todo.note }}</textarea>
+	</script>
+	
+
+	<script src="js/angularjs.1.2.25.js"></script>
+	<script src="js/angularjs.routes.1.2.25.js"></script>
+
+	<script>
+		var app = angular.module('TodoApp', ['ngRoute']);
+
+		app.factory('Todos', function(){
+			return [
+				{ 'name' : 'AngularJS Directives' , completed : true, note : 'add notes...' },
+				{ 'name' : 'Data Binding' , completed : true, note : 'add notes...' },
+				{ 'name' : '$scope' , completed : true, note : 'add notes...' },
+				{ 'name' : 'Controlls and Modules' , completed : true, note : 'add notes...' },
+				{ 'name' : 'Templates and Routes' , completed : true, note : 'add notes...' },
+				{ 'name' : 'Filters and Services' , completed : false, note : 'add notes...' },
+				{ 'name' : 'Get Started with Node/ExpressJS' , completed : false, note : 'add notes...' },
+				{ 'name' : 'Setup MongoDb database' , completed : false, note : 'add notes...' },
+				{ 'name' : 'Be awesome' , completed : false, note : 'add notes...' },
+			];
+		});		
+
+		app.config(['$routeProvider', function($routeProvider){			
+			$routeProvider
+				.when('/', {
+					templateUrl : '/todos.html',
+					controller : 'ToDoCtrl'
+				})
+				.when('/:id', {
+					templateUrl : '/todoDetail.html',
+					controller : 'TodoDetailCtrl'
+				});
+		}]);
+
+
+
+		app.controller('ToDoCtrl', ['$scope', 'Todos', function($scope, Todos){			
+			$scope.todos = Todos;
+			$scope.name  = 'Thomas';		
+		}]);
+
+		app.controller('TodoDetailCtrl', ['$scope','$routeParams','Todos', function($scope, $routeParams, Todos){			
+			$scope.todo = Todos[$routeParams.id];
+		}]);
+	</script>
+</body>
+</html>
