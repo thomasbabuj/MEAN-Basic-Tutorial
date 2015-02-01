@@ -212,7 +212,15 @@ AngularJS Templates
 
 	They can also be cached and referenced by Id.
 
-	
+
+AngularJS Routes (ngRoutes)
+
+	ngRoutes module allows changing what we see in the app depdending on the URL(route).  It, usually , uses templates to inject the HTML
+	into the app.
+
+	It doesnot come with AngularJS core module, so we have to list it as a dependency.
+
+
 
 
 

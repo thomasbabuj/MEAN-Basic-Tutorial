@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html ng-app="TodoApp">
+<head>
+	<title>AngularJS ngRoutes Example</title>
+</head>
+<body>
+
+	<ng-view></ng-view>
+
+	<!-- Templates -->
+	<script type="text/ng-template" id="/todos.html">
+		<ul>
+			<li ng-repeat="todo in todos">
+				<input type="checkbox" ng-model="todo.completed" />
+				{{todo.name}}
+			</li>
+		</ul>
+	</script>
+
+	<script type="text/ng-template" id="/about.html">
+		<div>
+			<h1>{{company.name}}</h1>
+			<h2>{{company.address}}</h2>
+			<h2>{{company.postal}}</h2>
+			<h2>{{company.country}}</h2>
+		</div>
+	</script>
+
+
+
+	<script src="js/angularjs.1.2.25.js"></script>
+	<script src="js/angularjs.routes.1.2.25.js"></script>
+	<script>
+		var app = angular.module('TodoApp', ['ngRoute']);
+
+		app.controller('ToDoCtrl', ['$scope', function($scope){
+
+			$scope.todos = [
+				{ name : 'Master HTML/CSS/Javascript', completed :true },
+				{ name : 'Learn AngularJS', completed :false },
+				{ name : 'Build NodeJS backend', completed :false },
+				{ name : 'Get started with ExpressJS', completed :false },
+				{ name : 'Setup MongoDB database', completed :false },
+				{ name : 'Be awesome!', completed :false },
+			];
+		}]);
+
+		app.controller('AboutCtrl', ['$scope', function($scope){
+			$scope.company = {
+				name : 'Comapnay Name',
+				address : '#80, Anson Road',
+				postal  : '390001',
+				country : 'Singapore'
+			};
+		}]);
+
+		app.config(['$routeProvider', function($routeProvider){			
+			$routeProvider
+				.when('/', {
+					templateUrl : '/todos.html',
+					controller  : 'ToDoCtrl'
+				})
+				.when('/about', {
+					templateUrl : '/about.html',
+					controller : 'AboutCtrl'
+				});			
+		}]);
+
+	</script>
+</body>
+</html>
