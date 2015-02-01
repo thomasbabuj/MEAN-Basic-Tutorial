@@ -305,6 +305,51 @@ Mongoose Delete
 		Model.findOneAndRemove(conditions,[options], [callback]);	
 
 
+ExpressJS and Middlewares
+
+	Express is a complete web framework solution.
+
+	Through middlewares layers, it handles : cookies, sessions, caching, CSRF, compression and many more.
+
+	Middlewares
+
+		Are a stack of processors that runs on each request made to the server.
+
+		You can have any number of middlewares that will process the request one by one in a serial fashion.
+
+		Some might alter the request input, log outputs, and data and pass it to the next() middleware in the chain.
+
+		Middlewares are added to express stack using *app.use* for any method or the app.VERB( app.get, app.delete, app.post ,...)
+
+		Usually, we dont have to develop a bunch of middlewares besides routes, since Expressjs has a bunch of middlewares avaibale.
+
+	Default Express Middlewares
+
+		morgan - Logger
+
+		body-parser  - Parse the body so you can access parameters in requests in req.body ( e.g req.body.name)
+
+		cookie-parser - Parse the cookies so you can access parameters in cookies req.cookies ( eg. req.cookies.name)
+
+		serve-facicon - Serve favicon from routes. Should be call on the top before
+		any other routing/middlewares takes place to avoid unnecesssary parsing.
+
+	Other ExpressJS middlewares
+
+		compression - compress all request. e.g (app.use(compression()))
+
+		session - create session (eg. app.use(session({ select : 'b@ndw1d7h'})))
+
+		method-override - app.use(methodOverride('_method')) Override methods to the one specified
+		on the _method pararm.
+		E.g GET /resource/1?_method=DELETE will become DELETE /resource/1
+
+		response-time - app.use( responseTime() ) - adds X-Rresponse-Time header to responses.
+
+		errorhandler - sending full error stack traces to the client when an error occurs.
+			its a good practice to surrond it with an if statement to check process.env.NODE_ENV === 'development'
+
+
 
 
 
